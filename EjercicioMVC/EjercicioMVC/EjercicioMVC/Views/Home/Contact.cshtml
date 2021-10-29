@@ -1,0 +1,32 @@
+﻿@model List<EjercicioMVC.DAL.ProductosDto>
+@{
+    ViewBag.Title = "Productos";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<table class="table table-responsive table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+        <tr class="table-dark text-uppercase">
+            <th scope="col" class="text-center">Nombre</th>
+            <th scope="col" class="text-center">Precio</th>
+            <th scope="col" class="text-center">Tipo</th>
+            <th scope="col" class="text-center">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+        <tr name="@producto.id" class="table-primary table-active">
+            <td scope="row" class="text-center">@producto.nombre</td>
+            <td scope="row" class="text-center">@producto.precio</td>
+            <td scope="row" class="text-center">@producto.productosTipoDto.nombre</td>
+            <td scope="row" class="text-center">
+                <button type="button" class="glyphicon glyphicon-pencil">
+                    <i class="fas fa-times"></i>
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
